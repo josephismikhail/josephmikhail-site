@@ -1,0 +1,217 @@
+/* Base responsive font sizing */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Focus rings */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Page min height/footer space */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* ===== Joseph: Charcoal + Purple theme ===== */
+:root {
+    --bg-0: #0f0f12; /* charcoal background */
+    --bg-1: #15161a; /* cards / navbar */
+    --text-0: #e7e7ee; /* near-white text */
+    --text-1: #b8b8c6; /* dimmer text */
+    --accent: #8b5cf6; /* purple */
+    --accent-2: #a78bfa;
+    --card: #1b1c22;
+    --border: #2a2c35;
+}
+
+/* Global body + text colors */
+body {
+    background: var(--bg-0);
+    color: var(--text-0);
+}
+
+/* Links */
+a {
+    color: var(--accent);
+}
+
+    a:hover {
+        color: var(--accent-2);
+    }
+
+/* Layout width */
+.container,
+.container-fluid {
+    max-width: 1050px;
+}
+
+/* Sections / cards */
+.card,
+.rounded {
+    border-radius: 1rem;
+}
+
+.shadow {
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.35) !important;
+}
+
+.section {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+hr {
+    border-color: var(--border);
+    opacity: .3;
+}
+
+.lead {
+    color: var(--text-1);
+}
+
+.text-muted {
+    color: var(--text-1) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+    .btn-primary:hover {
+        filter: brightness(1.08);
+    }
+
+.btn-outline-secondary,
+.btn-outline-primary {
+    color: var(--text-0);
+    border-color: var(--border);
+}
+
+.btn-outline-primary {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+    .btn-outline-primary:hover {
+        background: var(--accent);
+        color: #fff;
+    }
+
+/* Navbar base colors */
+.navbar {
+    background: var(--bg-1) !important;
+    border-bottom: 1px solid var(--border);
+}
+
+    .navbar .nav-link,
+    .navbar-brand {
+        color: var(--text-0) !important;
+    }
+
+        .navbar .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+    /* Make nav links tappable and spaced */
+    .navbar .nav-link {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+/* Custom hamburger button */
+.navbar-toggler {
+    border: 0;
+    outline: 0;
+    box-shadow: none !important;
+    position: relative;
+    z-index: 1100; /* stay above dropdown so you can close it */
+}
+
+/* We build the 3 purple bars ourselves */
+.custom-burger {
+    background-image: none !important;
+    width: 1.5rem;
+    height: 1.25rem;
+    display: inline-block;
+    position: relative;
+}
+
+    .custom-burger::before,
+    .custom-burger::after,
+    .custom-burger > div {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 3px;
+        border-radius: 2px;
+        background-color: var(--accent); /* purple bars */
+    }
+
+    .custom-burger::before {
+        top: 0;
+    }
+
+    .custom-burger::after {
+        bottom: 0;
+    }
+
+    .custom-burger > div {
+        top: calc(50% - 1.5px);
+    }
+
+/* Mobile dropdown panel */
+@media (max-width: 767.98px) {
+    .mobile-menu-panel {
+        position: absolute;
+        top: 100%; /* sit right under navbar */
+        right: 1rem;
+        left: auto;
+        width: 220px;
+        background-color: var(--bg-1);
+        border: 1px solid var(--border);
+        border-radius: .75rem;
+        padding: .5rem 0;
+        z-index: 1000;
+        /* make sure bootstrap flex rules don't shove it weirdly */
+        flex-basis: auto !important;
+    }
+
+    /* each link is a big finger-friendly tap target */
+    .navbar-nav .nav-link {
+        display: block;
+        padding: .75rem 1rem;
+    }
+}
+
+/* Desktop cleanup (md and up) */
+@media (min-width: 768px) {
+    .mobile-menu-panel {
+        position: static;
+        width: auto;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+    }
+}
